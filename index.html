@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>N.N Creations | Homemade Cakes & Snacks</title>
+  <title>N.N Creation's | হোমমেড কেক ও স্ন্যাক্স</title>
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Hind Siliguri', 'Noto Sans Bengali', 'Segoe UI', sans-serif; }
 
     body {
       background: linear-gradient(180deg, #ffeef8 0%, #fff4e6 50%, #e8f8ff 100%);
@@ -23,14 +23,14 @@
       border-bottom-right-radius: 30px;
       box-shadow: 0 8px 20px rgba(255, 62, 127, 0.3);
     }
-    header h1 { font-size: 25px; font-weight: 800; margin-bottom: 6px; }
+    header h1 { font-size: 25px; font-weight: 800; margin-bottom: 8px; }
     header p {
       font-size: 13px;
       background: rgba(255, 255, 255, 0.22);
       display: inline-block;
-      padding: 6px 14px;
+      padding: 7px 14px;
       border-radius: 20px;
-      line-height: 1.4;
+      line-height: 1.5;
     }
 
     .container { max-width: 600px; margin: 20px auto; padding: 0 15px; }
@@ -45,6 +45,7 @@
       border-radius: 14px;
       margin-bottom: 18px;
       border: 1px dashed #c084fc;
+      line-height: 1.5;
     }
 
     .cake-grid {
@@ -121,57 +122,57 @@
 <body>
 
   <header>
-    <h1>🎂 Homemade Cakes & Snacks</h1>
-    <p>Chocolate Cake • Cupcake • Roshmalai Cake • Pizza • Momo</p>
+    <h1>🎂 N.N Creation's</h1>
+    <p>সম্পূর্ণ হোমমেড চকলেট কেক, কাপকেক, রসমলাই কেক, পিৎজা ও মোমো</p>
   </header>
 
   <div class="container">
-    <div class="badge-info">👆 Finger diye swipe kore 360° ghuriye dekhun • Price-e tap kore WhatsApp-e order korun</div>
+    <div class="badge-info">👆 আঙুল দিয়ে সোয়াইপ করে ৩৬০° ঘুরিয়ে দেখুন • দামের ওপর চাপ দিয়ে হোয়াটসঅ্যাপে অর্ডার করুন</div>
     <div class="cake-grid" id="itemList"></div>
   </div>
 
   <footer>
-    ✨ Fresh Homemade Taste • Direct WhatsApp Order
+    ✨ ফ্রেশ হোমমেড স্বাদ • সরাসরি হোয়াটসঅ্যাপে অর্ডার
   </footer>
 
   <script>
-    // 1. Ekhane tomar WhatsApp number dao (880 shoho, + chara)
+    // ১. এখানে আপনার হোয়াটসঅ্যাপ নম্বর দিন (880 সহ, + ছাড়া)
     const whatsappNumber = "8801XXXXXXXXX";
 
-    // 2. Ekhane item-er naam, details, price, 3D (.glb) link ar photo link edit koro
+    // ২. এখানে আইটেমের নাম, বিবরণ, দাম, ৩ডি (.glb) লিংক ও ছবির লিংক পরিবর্তন করতে পারবেন
     const items = [
       {
-        name: "Homemade Chocolate Cake",
-        details: "Rich Cocoa • Fresh Cream",
-        price: "৳950",
+        name: "হোমমেড চকলেট কেক",
+        details: "রিচ কোকো • ফ্রেশ ক্রিম",
+        price: "৳৯৫০",
         model3d: "https://modelviewer.dev/shared-assets/models/Astronaut.glb",
         poster: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=80"
       },
       {
-        name: "Homemade Cupcakes",
-        details: "Box of 6 • Soft & Frosting",
-        price: "৳650",
+        name: "হোমমেড কাপকেক",
+        details: "৬ পিসের বক্স • নরম ও ফ্রস্টিং",
+        price: "৳৬৫০",
         model3d: "https://modelviewer.dev/shared-assets/models/Astronaut.glb",
         poster: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=600&q=80"
       },
       {
-        name: "Roshmalai Cake",
-        details: "Desi Fusion • Creamy Sponge",
-        price: "৳1,150",
+        name: "রসমলাই কেক",
+        details: "দেশি ফিউশন • ক্রিমি স্পঞ্জ",
+        price: "৳১,১৫০",
         model3d: "https://modelviewer.dev/shared-assets/models/Astronaut.glb",
         poster: "https://images.unsplash.com/photo-1586788680434-30d324b2d46f?w=600&q=80"
       },
       {
-        name: "Homemade Pizza",
-        details: "Cheesy Topping • Fresh Base",
-        price: "৳550",
+        name: "হোমমেড পিৎজা",
+        details: "চিজি টপিং • ফ্রেশ বেজ",
+        price: "৳৫৫০",
         model3d: "https://modelviewer.dev/shared-assets/models/Astronaut.glb",
         poster: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600&q=80"
       },
       {
-        name: "Homemade Momo",
-        details: "Steamed / Fried • Spicy Dip",
-        price: "৳320",
+        name: "হোমমেড মোমো",
+        details: "স্টিমড / ফ্রায়েড • স্পাইসি ডিপ",
+        price: "৳৩২০",
         model3d: "https://modelviewer.dev/shared-assets/models/Astronaut.glb",
         poster: "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?w=600&q=80"
       }
@@ -181,17 +182,17 @@
 
     items.forEach(item => {
       const message = encodeURIComponent(
-        `Assalamu Alaikum! Ami ei item-ta order korte chai:\n\n` +
-        `🍽️ Item: ${item.name} (${item.details})\n` +
-        `💰 Price: ${item.price}\n\n` +
-        `Delivery & order details janaben please.`
+        `আসসালামু আলাইকুম! আমি এই আইটেমটি অর্ডার করতে চাই:\n\n` +
+        `🍽️ আইটেম: ${item.name} (${item.details})\n` +
+        `💰 দাম: ${item.price}\n\n` +
+        `ডেলিভারি ও অর্ডার বিস্তারিত জানাবেন অনুগ্রহ করে।`
       );
       const waLink = `https://wa.me/${whatsappNumber}?text=${message}`;
 
       itemList.innerHTML += `
         <div class="card">
           <div class="viewer-box">
-            <span class="tag-360">🔄 360° View</span>
+            <span class="tag-360">🔄 ৩৬০° ভিউ</span>
             <model-viewer 
               src="${item.model3d}" 
               poster="${item.poster}"
