@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>N.N Creations | Homemade Cakes & Snacks</title>
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+
+    body {
+      background: linear-gradient(180deg, #ffeef8 0%, #fff4e6 50%, #e8f8ff 100%);
+      color: #2d1b36;
+      padding-bottom: 45px;
+    }
+
+    header {
+      background: linear-gradient(135deg, #ff3e7f, #ff8a3d, #a838ff);
+      color: #ffffff;
+      text-align: center;
+      padding: 30px 16px 26px;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      box-shadow: 0 8px 20px rgba(255, 62, 127, 0.3);
+    }
+    header h1 { font-size: 25px; font-weight: 800; margin-bottom: 6px; }
+    header p {
+      font-size: 13px;
+      background: rgba(255, 255, 255, 0.22);
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 20px;
+      line-height: 1.4;
+    }
+
+    .container { max-width: 600px; margin: 20px auto; padding: 0 15px; }
+
+    .badge-info {
+      text-align: center;
+      font-size: 13px;
+      font-weight: 600;
+      color: #7c2ae8;
+      background: #f3e8ff;
+      padding: 10px 12px;
+      border-radius: 14px;
+      margin-bottom: 18px;
+      border: 1px dashed #c084fc;
+    }
+
+    .cake-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(168, 56, 255, 0.12);
+      border: 2px solid #ffd6e7;
+    }
+
+    .viewer-box {
+      position: relative;
+      width: 100%;
+      height: 235px;
+      background: radial-gradient(circle, #fff0f6 0%, #ffe3ec 100%);
+    }
+    model-viewer {
+      width: 100%;
+      height: 100%;
+      --poster-color: transparent;
+    }
+    .tag-360 {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: linear-gradient(135deg, #7c2ae8, #ff3e7f);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 5px 10px;
+      border-radius: 20px;
+      pointer-events: none;
+    }
+
+    .card-body {
+      padding: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(90deg, #ffffff, #fff9fc);
+    }
+    .cake-info h3 { font-size: 17px; font-weight: 800; color: #2d1b36; margin-bottom: 4px; }
+    .cake-info p { font-size: 13px; color: #ff3e7f; font-weight: 600; }
+
+    .price-btn {
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 15px;
+      padding: 12px 18px;
+      border-radius: 14px;
+      white-space: nowrap;
+      box-shadow: 0 5px 15px rgba(37, 211, 102, 0.35);
+    }
+    .price-btn:active { transform: scale(0.95); }
+
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: #6b5b7b;
+      margin-top: 30px;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🎂 Homemade Cakes & Snacks</h1>
+    <p>Chocolate Cake • Cupcake • Roshmalai Cake • Pizza • Momo</p>
+  </header>
+
+  <div class="container">
+    <div class="badge-info">👆 Finger diye swipe kore 360° ghuriye dekhun • Price-e tap kore WhatsApp-e order korun</div>
+    <div class="cake-grid" id="itemList"></div>
+  </div>
+
+  <footer>
+    ✨ Fresh Homemade Taste • Direct WhatsApp Order
+  </footer>
+
+  <script>
+    // 1. Ekhane tomar WhatsApp number dao (880 shoho, + chara)
+    const whatsappNumber = "8801XXXXXXXXX";
+
+    // 2. Ekhane item-er naam, details, price, 3D (.glb) link ar photo link edit koro
+    const items = [
+      {
+        name: "Homemade Chocolate Cake",
+        details: "Rich Cocoa • Fresh Cream",
+        price: "৳950",
+        model3d: "https://modelviewer.dev/shared-assets/models/Astronaut.glb",
+        poster: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=80"
+      },
+      {
+        name: "Homemade Cupcakes",
+        details: "Box of 6 • Soft & Frosting",
+        price: "৳650",
+        model3d: "https://modelviewer.dev/shared-assets/models/Astronaut.glb",
+        poster: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=600&q=80"
+      },
+      {
+        name: "Roshmalai Cake",
+        details: "Desi Fusion • Creamy Sponge",
+        price: "৳1,150",
+        model3d: "https://modelviewer.dev/shared-assets/models/Astronaut.glb",
+        poster: "https://images.unsplash.com/photo-1586788680434-30d324b2d46f?w=600&q=80"
+      },
+      {
+        name: "Homemade Pizza",
+        details: "Cheesy Topping • Fresh Base",
+        price: "৳550",
+        model3d: "https://modelviewer.dev/shared-assets/models/Astronaut.glb",
+        poster: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600&q=80"
+      },
+      {
+        name: "Homemade Momo",
+        details: "Steamed / Fried • Spicy Dip",
+        price: "৳320",
+        model3d: "https://modelviewer.dev/shared-assets/models/Astronaut.glb",
+        poster: "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?w=600&q=80"
+      }
+    ];
+
+    const itemList = document.getElementById("itemList");
+
+    items.forEach(item => {
+      const message = encodeURIComponent(
+        `Assalamu Alaikum! Ami ei item-ta order korte chai:\n\n` +
+        `🍽️ Item: ${item.name} (${item.details})\n` +
+        `💰 Price: ${item.price}\n\n` +
+        `Delivery & order details janaben please.`
+      );
+      const waLink = `https://wa.me/${whatsappNumber}?text=${message}`;
+
+      itemList.innerHTML += `
+        <div class="card">
+          <div class="viewer-box">
+            <span class="tag-360">🔄 360° View</span>
+            <model-viewer 
+              src="${item.model3d}" 
+              poster="${item.poster}"
+              alt="${item.name}"
+              auto-rotate 
+              camera-controls 
+              touch-action="pan-y"
+              shadow-intensity="1">
+            </model-viewer>
+          </div>
+          <div class="card-body">
+            <div class="cake-info">
+              <h3>${item.name}</h3>
+              <p>${item.details}</p>
+            </div>
+            <a href="${waLink}" target="_blank" class="price-btn">
+              ${item.price} ➔
+            </a>
+          </div>
+        </div>
+      `;
+    });
+  </script>
+
+</body>
+</html>
